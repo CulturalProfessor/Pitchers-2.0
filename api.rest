@@ -1,0 +1,52 @@
+//user auth links
+POST http://localhost:3001/register
+Content-Type: application/json
+
+{
+    "name":"Tushar Chauhan",
+    "age":20,
+    "email":"tushar1234@gmail.com",
+    "password":"tushar1234",
+    "Role":"Investor"
+}
+
+###
+POST http://localhost:3001/login
+Content-Type: application/json
+
+{
+    "email":"tushar1234@gmail.com",
+    "password":"tushar1234"
+}
+
+###
+
+//pitch routes
+POST http://localhost:3001/pitch/add
+Content-Type: application/json
+
+{
+    "title":"Dummy title",
+    "description":"Dummy description",
+    "message":"Dummy message"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
