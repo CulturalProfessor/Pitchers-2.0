@@ -17,10 +17,13 @@ chatClient.connectUser(
 
 const channel = chatClient.channel('messaging', 'custom_channel_id', {
   // add as many custom fields as you'd like
-  image: 'https://www.drupal.org/files/project-images/react.png',
-  name: 'Talk About React',
+  image: '../assets/pitcherslogo.png',
+  name: 'Pitchers Chat',
   members: ['purple-poetry-8'],
 });
+
+await channel.addMembers(['thierry', 'josh']);
+
 
 const App = () => (
   <Chat client={chatClient} theme='str-chat__theme-dark'>
