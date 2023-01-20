@@ -1,15 +1,27 @@
 const mongoose = require('mongoose')
 
 const Pitch_Schema = new mongoose.Schema({
-    title: {
+    company_name: {
         type: String,
         required: true
     },
-    description: {
+    pitcher_name: {
         type: String,
         required:true
     },
-    message: {
+    educational_background: {
+        type: String,
+        required:true
+    },
+    money: {
+        type: Number,
+        required:true
+    },
+    equity: {
+        type: Number,
+        required:true
+    },
+    description: {
         type: String,
         required:true
     }

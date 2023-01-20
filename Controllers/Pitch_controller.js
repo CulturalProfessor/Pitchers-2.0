@@ -2,12 +2,15 @@ const Pitch_model = require("../Models/Pitch_model")
 
 class Pitch_controller {
     static addPitch = async (req, res) => {
-        const { title, description, message } = req.body
-        if (title && description && message) {
+        const { company_name, pitcher_name, educational_background, money, equity,description } = req.body
+        if (company_name && pitcher_name && educational_background&&money&&equity) {
             const newPitch = Pitch_model({
-                title: title,
-                description: description,
-                message: message
+                company_name: company_name,
+                pitcher_name: pitcher_name,
+                educational_background: educational_background,
+                money: money,
+                equity: equity,
+                description:description
             })
             const savePitch = newPitch.save()
             res.status(200).json({

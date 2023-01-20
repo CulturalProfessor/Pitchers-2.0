@@ -3,10 +3,10 @@ POST http://localhost:3001/register
 Content-Type: application/json
 
 {
-    "name":"Tushar Chauhan",
+    "name":"asdf",
     "age":20,
-    "email":"tushar1234@gmail.com",
-    "password":"tushar1234",
+    "email":"tushar123asdfail.com",
+    "password":"tushdfar1234",
     "Role":"Investor"
 }
 
@@ -26,9 +26,12 @@ POST http://localhost:3001/pitch/add
 Content-Type: application/json
 
 {
-    "title":"Dummy title",
-    "description":"Dummy description",
-    "message":"Dummy message"
+    "company_name":"Dummy Name",
+    "pitcher_name":"Dummy name",
+    "educational_background":"Dummy",
+    "money":100000,
+    "equity":20,
+    "description":"Dummy description"
 }
 
 

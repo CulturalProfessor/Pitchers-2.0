@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const User_model = require("../Models/user_model");
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+const secretKey = 'randomsecret'
 class Auth_controller {
     static user_register = async (req, res) => {
         const { name, age, email, password, Role } = req.body;
@@ -32,7 +34,6 @@ class Auth_controller {
         const isnewuser = await User_model.findOne({
             email: email
         })
-        console.log(!isnewuser);
         if (!isnewuser) {
             res.status(404).json({
                 "message": "Invalid details"
@@ -43,6 +44,8 @@ class Auth_controller {
             const ispasscorrect = await bcrypt.compare(password, isnewuser.password)
             console.log(ispasscorrect);
             if (ispasscorrect) {
+                const token = jwt.sign({ email, password }, secretKey, { expiresIn: '1h' })
+                console.log(token);
                 res.status(200).json({
                     "message": "Login successfull!",
                 })
