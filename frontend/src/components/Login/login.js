@@ -1,7 +1,11 @@
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom'
+import Pitcherlogo from '../../assets/pitcherslogo.png';
+import LoginImage from '../../assets/loginimage.png';
+import './login.css'
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -33,27 +37,42 @@ function Login() {
   }
 
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control
-          type="email"
-          placeholder="Enter email"
-          onChange={handleemail}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Password"
-          onChange={handlepassword}
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit" onClick={sendData}>
-        Login
-      </Button>
-    </Form>
+    <div className="loginPage">
+      <div className="login">
+        <img src={Pitcherlogo} className="logo" />
+        <h1 className="heading text">Lets Sign you in</h1>
+        <h3 className="paragraph text">Welcome Back,</h3>
+        <h3 className="paragraph text"> You have been missed</h3>
+        <Form className="form">
+          <Form.Group className="mb-3 formInput" controlId="formBasicEmail">
+            <Form.Control
+              type="email"
+              placeholder="Enter Email"
+              onChange={handleemail}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3 formInput" controlId="formBasicPassword">
+            <Form.Control
+              type="password"
+              placeholder="Enter Password"
+              onChange={handlepassword}
+            />
+          </Form.Group>
+          <button className="signIn" type="submit" onClick={sendData}>
+            Sign in
+          </button>
+          <div className="signInFooter">
+            <h6>Don’t have an account ? </h6>
+            <Link to={"/register"} className="registerLink">
+              <h6>
+                <b>Register Now</b>
+              </h6>
+            </Link>
+          </div>
+        </Form>
+      </div>
+      <img src={LoginImage} />
+    </div>
   );
 }
 
